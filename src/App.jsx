@@ -1,9 +1,10 @@
 import Header from './components/Header'
-import Project from './components/Project'
+import Introduction from './components/Introduction'
+import Portfolio from './components/Portfolio'
+import Resume from './components/Resume'
 import Footer from './components/Footer'
 import { ThemeProvider, createTheme } from '@mui/material/styles'
 import CssBaseline from '@mui/material/CssBaseline'
-import Grid from '@mui/material/Grid'
 
 const darkTheme = createTheme({
   palette: {
@@ -23,7 +24,9 @@ export default function App() {
       <CssBaseline />
       <div className="App">
         <Header />
-        <Project />
+        <Introduction />
+        <Portfolio />
+        <Resume />
         <Footer text="Footer Note" />
       </div>
     </ThemeProvider>
