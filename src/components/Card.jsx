@@ -6,7 +6,7 @@ import {
   Typography,
 } from '@mui/material/'
 
-const ProjectCard = props => {
+const PortfolioCard = props => {
   return (
     <div className="projects">
       <Card
@@ -20,11 +20,7 @@ const ProjectCard = props => {
           borderRadius: '20px',
         }}
       >
-        <CardMedia
-          sx={{ height: 200 }}
-          image={props.imageUrl}
-          alt="green iguana"
-        />
+        <CardMedia sx={{ height: 200 }} image={props.imageUrl} />
         <CardContent>
           <Typography variant="h4" textAlign={'center'}>
             {props.title}
@@ -71,4 +67,4 @@ const ProjectCard = props => {
   )
 }
 
-export default ProjectCard
+export default PortfolioCard

@@ -4,7 +4,7 @@ const Introduction = () => {
   return (
     <div className="about-me" id="about-me">
       <Grid container justifyContent={'center'}>
-        <Grid item sm={12} md={10} lg={8} textAlign={'center'}>
+        <Grid item sm={10} md={10} lg={8} textAlign={'center'}>
           <Typography variant="h4" margin={3}>
             About Me
           </Typography>
@@ -20,7 +20,7 @@ const Introduction = () => {
               }}
             />
             <CardContent>
-              <Typography variant="body" color="text.secondary">
+              <Typography variant="body">
                 Motivated and results-driven Junior Software Developer with a
                 decade of invaluable experience in Software Quality Assurance,
                 now transitioning seamlessly into the realm of software
