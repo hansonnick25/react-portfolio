@@ -1,6 +1,7 @@
 import Header from './components/Header'
 import Introduction from './components/Introduction'
 import Portfolio from './components/Portfolio'
+import Contact from './components/Contact'
 import Resume from './components/Resume'
 import Footer from './components/Footer'
 import { ThemeProvider, createTheme } from '@mui/material/styles'
@@ -26,6 +27,7 @@ export default function App() {
         <Header />
         <Introduction />
         <Portfolio />
+        <Contact />
         <Resume />
         <Footer text="Footer Note" />
       </div>
