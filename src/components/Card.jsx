@@ -38,7 +38,7 @@ const PortfolioCard = ({
           <Grid item>
             <CardMedia component="img" height={200} image={imageUrl} />
             <CardContent>
-              <Typography variant="h5" textAlign={'center'} pb={1}>
+              <Typography variant="h5" textAlign={'center'} pb={1.5}>
                 {title}
               </Typography>
               <Typography variant="p">{description}</Typography>
@@ -54,7 +54,7 @@ const PortfolioCard = ({
             item
             direction="column"
             gap={1}
-            p={1}
+            pb={1.5}
             alignItems="center"
           >
             <Button
