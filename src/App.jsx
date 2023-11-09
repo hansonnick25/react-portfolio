@@ -1,30 +1,69 @@
+import { useState } from 'react'
+import { ThemeProvider, createTheme } from '@mui/material/styles'
+import CssBaseline from '@mui/material/CssBaseline'
 import Header from './components/Header'
 import Introduction from './components/Introduction'
 import Portfolio from './components/Portfolio'
 import Contact from './components/Contact'
 import Resume from './components/Resume'
 import Footer from './components/Footer'
-import { ThemeProvider, createTheme } from '@mui/material/styles'
-import CssBaseline from '@mui/material/CssBaseline'
+
+const components = {
+  MuiButton: {
+    defaultProps: {
+      variant: 'contained',
+    },
+  },
+  MuiLink: {
+    defaultProps: {
+      underline: 'none',
+      color: 'white',
+    },
+  },
+  MuiCard: {
+    styleOverrides: {
+      root: {
+        alignItems: 'center',
+        margin: '10px',
+        borderRadius: '20px',
+      },
+    },
+  },
+  MuiTextField: {
+    defaultProps: {
+      required: true,
+      variant: 'filled',
+    },
+  },
+}
 
 const darkTheme = createTheme({
   palette: {
     mode: 'dark',
+    primary: {
+      main: '#3f7d20',
+    },
   },
+  components: components,
 })
 
 const lightTheme = createTheme({
   palette: {
     mode: 'light',
+    primary: {
+      main: '#3f7d20',
+    },
   },
+  components: components,
 })
 
 export default function App() {
+  const [theme, setTheme] = useState('dark')
   return (
-    <ThemeProvider theme={darkTheme}>
+    <ThemeProvider theme={theme === 'light' ? lightTheme : darkTheme}>
       <CssBaseline />
       <div className="App">
-        <Header />
+        <Header setTheme={setTheme} theme={theme} />
         <Introduction />
         <Portfolio />
         <Contact />
