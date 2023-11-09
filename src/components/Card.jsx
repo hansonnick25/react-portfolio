@@ -1,14 +1,23 @@
 import {
+  Box,
   Button,
   Card,
   CardContent,
   CardMedia,
   Typography,
+  Grid,
 } from '@mui/material/'
 
-const PortfolioCard = props => {
+const PortfolioCard = ({
+  imageUrl,
+  title,
+  description,
+  tech,
+  appLink,
+  repoLink,
+}) => {
   return (
-    <div className="projects">
+    <Box>
       <Card
         sx={{
           maxWidth: 345,
@@ -20,50 +29,58 @@ const PortfolioCard = props => {
           borderRadius: '20px',
         }}
       >
-        <CardMedia sx={{ height: 200 }} image={props.imageUrl} />
-        <CardContent>
-          <Typography variant="h4" textAlign={'center'}>
-            {props.title}
-          </Typography>
-          <Typography variant="p">{props.description}</Typography>
-          <Typography variant="ul">
-            {Object.values(props.tech).map((tech, index) => (
-              <li key={index}>{tech}</li>
-            ))}
-          </Typography>
-          <div style={{ textAlign: 'center' }}>
+        <Grid
+          container
+          direction="column"
+          justifyContent="space-between"
+          sx={{ height: 600 }}
+        >
+          <Grid item>
+            <CardMedia component="img" height={200} image={imageUrl} />
+            <CardContent>
+              <Typography variant="h5" textAlign={'center'} pb={1}>
+                {title}
+              </Typography>
+              <Typography variant="p">{description}</Typography>
+              <Typography variant="ul">
+                {Object.values(tech).map((tech, index) => (
+                  <li key={index}>{tech}</li>
+                ))}
+              </Typography>
+            </CardContent>
+          </Grid>
+          <Grid
+            container
+            item
+            direction="column"
+            gap={1}
+            p={1}
+            alignItems="center"
+          >
             <Button
               component="a"
-              href={props.appLink}
+              href={appLink}
               target="_blank"
               rel="noopener"
               variant="contained"
-              color="primary"
-              style={{
-                marginTop: '.5rem',
-                marginBottom: '.5rem',
-              }}
+              sx={{ width: 180 }}
             >
-              Open Application
+              <Typography variant="p">View Application</Typography>
             </Button>
             <Button
               component="a"
-              href={props.repoLink}
+              href={repoLink}
               target="_blank"
               rel="noopener"
               variant="contained"
-              color="primary"
-              style={{
-                marginTop: '.5rem',
-                marginBottom: '.5rem',
-              }}
+              sx={{ width: 180 }}
             >
-              Open GitHub Repo
+              <Typography variant="p">View Repository</Typography>
             </Button>
-          </div>
-        </CardContent>
+          </Grid>
+        </Grid>
       </Card>
-    </div>
+    </Box>
   )
 }
 
