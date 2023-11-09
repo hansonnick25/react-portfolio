@@ -1,12 +1,23 @@
-import Link from '@mui/material/Link'
-import AppBar from '@mui/material/AppBar'
-import Toolbar from '@mui/material/Toolbar'
-import Typography from '@mui/material/Typography'
+import {
+  Link,
+  AppBar,
+  Toolbar,
+  Typography,
+  FormControlLabel,
+  Switch,
+} from '@mui/material'
 
-const Header = () => {
+const Header = ({ theme, setTheme }) => {
+  const handleThemeToggle = event => {
+    const { checked } = event.target
+    setTheme(checked ? 'dark' : 'light')
+  }
+
+  const themeLabel = theme[0].toUpperCase() + theme.slice(1)
+
   return (
-    <AppBar position="static">
-      <Toolbar sx={{ justifyContent: 'space-evenly' }}>
+    <AppBar position="static" enableColorOnDark>
+      <Toolbar sx={{ justifyContent: 'space-between' }}>
         <Typography variant="h6">
           <Link href="#">Nick Hanson</Link>
         </Typography>
@@ -19,6 +30,18 @@ const Header = () => {
         <Typography variant="h6">
           <Link href="#resume">Resume</Link>
         </Typography>
+        <FormControlLabel
+          value="darkMode"
+          control={
+            <Switch
+              defaultChecked
+              onChange={handleThemeToggle}
+              color="default"
+            />
+          }
+          label={<Typography variant="h6">{themeLabel} Mode</Typography>}
+          color="white"
+        />
       </Toolbar>
     </AppBar>
   )
