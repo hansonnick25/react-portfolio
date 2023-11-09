@@ -4,7 +4,7 @@ const Introduction = () => {
   return (
     <div className="about-me" id="about-me">
       <Grid container justifyContent={'center'}>
-        <Grid item sm={10} md={10} lg={8} textAlign={'center'}>
+        <Grid item sm={10} md={10} lg={6} textAlign={'center'}>
           <Typography variant="h4" margin={3}>
             About Me
           </Typography>
