@@ -7,13 +7,11 @@ import {
   Switch,
 } from '@mui/material'
 
-const Header = ({ theme, setTheme }) => {
+const Header = ({ setTheme }) => {
   const handleThemeToggle = event => {
     const { checked } = event.target
     setTheme(checked ? 'dark' : 'light')
   }
-
-  const themeLabel = theme[0].toUpperCase() + theme.slice(1)
 
   return (
     <AppBar position="static" enableColorOnDark>
@@ -39,7 +37,7 @@ const Header = ({ theme, setTheme }) => {
               color="default"
             />
           }
-          label={<Typography variant="h6">{themeLabel} Mode</Typography>}
+          label={<Typography variant="h6">Dark Mode</Typography>}
           color="white"
         />
       </Toolbar>

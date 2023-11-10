@@ -14,23 +14,52 @@ import { validateEmail } from '../utils/helpers'
 
 const Contact = () => {
   const [formData, setFormData] = useState({ email: '', name: '', message: '' })
-  const [responseMessage, setResponseMessage] = useState('')
+  const [responseMessage, setResponseMessage] = useState({
+    message: '',
+    type: '',
+  })
   const [loading, setLoading] = useState(false)
 
   const handleChange = e => {
     setFormData({ ...formData, [e.target.name]: e.target.value })
   }
 
+  const handleBlur = e => {
+    if (e.target.name == 'name' && !formData.name) {
+      setResponseMessage({
+        message: 'Please enter your name so I know who you are!',
+        type: 'warning',
+      })
+    }
+
+    e.target.name == 'email' && !formData.email
+      ? setResponseMessage({
+          message: 'Please enter your email so I can get back to you!',
+          type: 'warning',
+        })
+      : console.log('fart')
+
+    e.target.name == 'message' && !formData.message
+      ? setResponseMessage({
+          message: 'Please enter your message so I know what you want to say!',
+          type: 'warning',
+        })
+      : console.log('fart')
+  }
+
   const handleSubmit = e => {
     e.preventDefault()
-    // let form = document.getElementById('contact-me-form')
+    let form = document.getElementById('contact-me-form')
 
     if (!formData.email || !formData.message) {
-      setResponseMessage('Please fill out all fields')
+      setResponseMessage({ message: 'Uh-oh, you fucked up', type: 'error' })
       return
     }
     if (!validateEmail(formData.email)) {
-      setResponseMessage('Please enter a valid email address')
+      setResponseMessage({
+        message: 'Your email is an invalid, just like my grandma',
+        type: 'error',
+      })
       return
     }
 
@@ -40,13 +69,13 @@ const Contact = () => {
       .sendForm(
         'service_7pb3op9',
         'template_6rlkit6',
-        document.getElementById('contact-me-form'),
+        form,
         'qqvh9l_k9DDGWWdkf'
       )
       .then(
         result => {
           console.log(result.text)
-          setResponseMessage('Message sent successfully')
+          setResponseMessage({ message: '', type: '' })
           setLoading(false)
         },
         error => {
@@ -84,6 +113,7 @@ const Contact = () => {
                     label="Your Name"
                     name="name"
                     onChange={handleChange}
+                    onBlur={handleBlur}
                     margin="dense"
                     fullWidth
                   />
@@ -92,6 +122,7 @@ const Contact = () => {
                     label="Your Email"
                     name="email"
                     onChange={handleChange}
+                    onBlur={handleBlur}
                     margin="dense"
                     fullWidth
                   />
@@ -102,11 +133,16 @@ const Contact = () => {
                     rows={4}
                     name="message"
                     onChange={handleChange}
+                    onBlur={handleBlur}
                     margin="dense"
                     fullWidth
                   />
                 </Box>
-                <Typography>{responseMessage}</Typography>
+                <Typography>
+                  {responseMessage
+                    ? responseMessage.message
+                    : console.log('fart')}
+                </Typography>
               </form>
               <LoadingButton
                 onClick={handleSubmit}
