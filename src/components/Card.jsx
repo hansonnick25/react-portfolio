@@ -2,10 +2,13 @@ import {
   Box,
   Button,
   Card,
+  CardActions,
   CardContent,
   CardMedia,
   Typography,
   Grid,
+  List,
+  ListItem,
 } from '@mui/material/'
 
 const PortfolioCard = ({
@@ -21,9 +24,9 @@ const PortfolioCard = ({
       <Card
         sx={{
           maxWidth: 345,
-          minWidth: 200,
-          minHeight: 600,
-          maxHeight: 600,
+          minWidth: 345,
+          minHeight: 750,
+          maxHeight: 750,
           alignItems: 'center',
           margin: '10px',
           borderRadius: '20px',
@@ -31,53 +34,46 @@ const PortfolioCard = ({
       >
         <Grid
           container
-          direction="column"
-          justifyContent="space-between"
-          sx={{ height: 600 }}
+          direction='column'
+          justifyContent='space-between'
+          sx={{ height: 750 }}
         >
           <Grid item>
-            <CardMedia component="img" height={200} image={imageUrl} />
-            <CardContent>
-              <Typography variant="h5" textAlign={'center'} pb={1.5}>
+            <CardMedia component='img' height={250} image={imageUrl} />
+            <CardContent px={1.25}>
+              <Typography variant='h5' textAlign={'center'} pb={1.25}>
                 {title}
               </Typography>
-              <Typography variant="p">{description}</Typography>
-              <Typography variant="ul">
+              <Typography variant='p'>{description}</Typography>
+              <List sx={{ listStyleType: 'disc', pl: 1.5 }}>
                 {Object.values(tech).map((tech, index) => (
-                  <li key={index}>{tech}</li>
+                  <ListItem key={index} sx={{ display: 'list-item' }}>
+                    {tech}
+                  </ListItem>
                 ))}
-              </Typography>
+              </List>
             </CardContent>
           </Grid>
-          <Grid
-            container
-            item
-            direction="column"
-            gap={1}
-            pb={1.5}
-            alignItems="center"
-          >
-            <Button
-              component="a"
-              href={appLink}
-              target="_blank"
-              rel="noopener"
-              variant="contained"
-              sx={{ width: 180 }}
-            >
-              <Typography variant="p">View Application</Typography>
-            </Button>
-            <Button
-              component="a"
-              href={repoLink}
-              target="_blank"
-              rel="noopener"
-              variant="contained"
-              sx={{ width: 180 }}
-            >
-              <Typography variant="p">View Repository</Typography>
-            </Button>
-          </Grid>
+          <Box sx={{ mt: 'auto', mb: 1 }}>
+            <CardActions sx={{ justifyContent: 'center' }}>
+              <Button
+                component='a'
+                href={appLink}
+                target='_blank'
+                rel='noopener noreferrer'
+              >
+                <Typography variant='p'>View Application</Typography>
+              </Button>
+              <Button
+                component='a'
+                href={repoLink}
+                target='_blank'
+                rel='noopener noreferrer'
+              >
+                <Typography variant='p'>View Repository</Typography>
+              </Button>
+            </CardActions>
+          </Box>
         </Grid>
       </Card>
     </Box>
