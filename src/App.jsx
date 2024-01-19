@@ -60,15 +60,15 @@ const lightTheme = createTheme({
 export default function App() {
   const [theme, setTheme] = useState('dark')
   return (
-    <ThemeProvider theme={theme === 'light' ? lightTheme : darkTheme}>
+    <ThemeProvider theme={theme === 'dark' ? darkTheme : lightTheme}>
       <CssBaseline />
-      <div className="App">
+      <div className='App'>
         <Header setTheme={setTheme} theme={theme} />
         <Introduction />
         <Portfolio />
         <Contact />
         <Resume />
-        <Footer text="Footer Note" />
+        <Footer text='Footer Note' />
       </div>
     </ThemeProvider>
   )
