@@ -1,11 +1,22 @@
+import * as React from 'react'
+import { useContext } from 'react'
 import {
-  Link,
   AppBar,
+  Box,
   Toolbar,
+  IconButton,
   Typography,
+  Menu,
+  Container,
+  Button,
+  MenuItem,
   FormControlLabel,
   Switch,
 } from '@mui/material'
+import MenuIcon from '@mui/icons-material/Menu'
+import Brightness7Icon from '@mui/icons-material/Brightness7'
+
+const sections = ['Portfolio', 'Contact', 'Resume']
 
 const Header = ({ setTheme }) => {
   const handleThemeToggle = event => {
@@ -13,34 +24,147 @@ const Header = ({ setTheme }) => {
     setTheme(checked ? 'dark' : 'light')
   }
 
+  const [anchorElNav, setAnchorElNav] = React.useState(null)
+
+  const handleOpenNavMenu = event => {
+    setAnchorElNav(event.currentTarget)
+  }
+
+  const handleCloseNavMenu = () => {
+    setAnchorElNav(null)
+  }
+
+  const handleClickNavMenu = event => {
+    const page = event.currentTarget.innerText.toLowerCase()
+    const element = document.getElementById(page)
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' })
+    } else {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth',
+      })
+    }
+  }
+
   return (
-    <AppBar position="static" enableColorOnDark>
-      <Toolbar sx={{ justifyContent: 'space-between' }}>
-        <Typography variant="h6">
-          <Link href="#">Nick Hanson</Link>
-        </Typography>
-        <Typography variant="h6">
-          <Link href="#about-me">About Me</Link>
-        </Typography>
-        <Typography variant="h6">
-          <Link href="#portfolio">Portfolio</Link>
-        </Typography>
-        <Typography variant="h6">
-          <Link href="#resume">Resume</Link>
-        </Typography>
-        <FormControlLabel
-          value="darkMode"
-          control={
-            <Switch
-              defaultChecked
-              onChange={handleThemeToggle}
-              color="default"
-            />
-          }
-          label={<Typography variant="h6">Dark Mode</Typography>}
-          color="white"
-        />
-      </Toolbar>
+    <AppBar position='sticky' enableColorOnDark>
+      <Container maxWidth='xl'>
+        <Toolbar disableGutters>
+          <Button
+            onClick={handleClickNavMenu}
+            variant='text'
+            sx={{ my: 2, color: 'white', display: 'block' }}
+          >
+            <Typography
+              variant='h6'
+              noWrap
+              component='a'
+              sx={{
+                mr: 2,
+                display: { xs: 'none', md: 'flex' },
+                fontWeight: 700,
+                color: 'inherit',
+                textDecoration: 'none',
+              }}
+            >
+              Nick Hanson
+            </Typography>
+          </Button>
+          <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
+            <IconButton
+              size='large'
+              aria-label='expand navigation'
+              aria-controls='menu-appbar'
+              aria-haspopup='true'
+              onClick={handleOpenNavMenu}
+              color='inherit'
+            >
+              <MenuIcon />
+            </IconButton>
+            <Menu
+              id='menu-appbar'
+              anchorEl={anchorElNav}
+              anchorOrigin={{
+                vertical: 'bottom',
+                horizontal: 'left',
+              }}
+              keepMounted
+              transformOrigin={{
+                vertical: 'top',
+                horizontal: 'left',
+              }}
+              open={Boolean(anchorElNav)}
+              onClose={handleCloseNavMenu}
+              sx={{
+                display: { xs: 'block', md: 'none' },
+              }}
+            >
+              {sections.map(section => (
+                <MenuItem key={section} onClick={handleClickNavMenu}>
+                  <Typography
+                    variant='h5'
+                    noWrap
+                    component='a'
+                    sx={{
+                      mr: 2,
+                      display: { xs: 'flex', md: 'none' },
+                      flexGrow: 1,
+                      fontWeight: 700,
+                      color: 'inherit',
+                      textDecoration: 'none',
+                    }}
+                  >
+                    {section}
+                  </Typography>
+                </MenuItem>
+              ))}
+            </Menu>
+          </Box>
+          <Typography
+            variant='h5'
+            noWrap
+            component='a'
+            sx={{
+              mr: 2,
+              display: { xs: 'flex', md: 'none' },
+              flexGrow: 1,
+              fontWeight: 700,
+              color: 'inherit',
+              textDecoration: 'none',
+            }}
+          >
+            Nick Hanson
+          </Typography>
+          <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
+            {sections.map(section => (
+              <Button
+                key={section}
+                onClick={handleClickNavMenu}
+                variant='text'
+                sx={{ my: 2, color: 'white', display: 'block' }}
+              >
+                {section}
+              </Button>
+            ))}
+          </Box>
+
+          <FormControlLabel
+            value='darkMode'
+            label={<Brightness7Icon></Brightness7Icon>}
+            labelPlacement='start'
+            control={
+              <Switch
+                defaultChecked
+                onChange={handleThemeToggle}
+                color='default'
+              />
+            }
+            color='white'
+            sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}
+          />
+        </Toolbar>
+      </Container>
     </AppBar>
   )
 }
