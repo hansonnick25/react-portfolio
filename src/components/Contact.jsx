@@ -85,56 +85,56 @@ const Contact = () => {
   }
 
   return (
-    <Box className="contact-me" id="portfolio">
-      <Typography variant="h4" margin={3} textAlign={'center'}>
+    <Box className='contact' id='contact'>
+      <Typography variant='h4' margin={3} textAlign={'center'}>
         Contact Me
       </Typography>
       <Grid container justifyContent={'center'}>
         <Grid item sm={10} md={10} lg={7} textAlign={'center'}>
           <Card>
             <CardContent>
-              <form id="contact-me-form">
+              <form id='contact-me-form'>
                 <Box px={5}>
-                  <Typography variant="body">
+                  <Typography variant='body'>
                     Please feel free to reach out to me with any questions or
                     inquiries you may have! I will get back to you as soon as I
                     am able.
                   </Typography>
                 </Box>
                 <Box
-                  display="flex"
-                  flexDirection="column"
-                  justifyContent="center"
-                  alignItems="center"
+                  display='flex'
+                  flexDirection='column'
+                  justifyContent='center'
+                  alignItems='center'
                   margin={3}
                 >
                   <TextField
-                    id="name-form"
-                    label="Your Name"
-                    name="name"
+                    id='name-form'
+                    label='Your Name'
+                    name='name'
                     onChange={handleChange}
                     onBlur={handleBlur}
-                    margin="dense"
+                    margin='dense'
                     fullWidth
                   />
                   <TextField
-                    id="email-form"
-                    label="Your Email"
-                    name="email"
+                    id='email-form'
+                    label='Your Email'
+                    name='email'
                     onChange={handleChange}
                     onBlur={handleBlur}
-                    margin="dense"
+                    margin='dense'
                     fullWidth
                   />
                   <TextField
-                    id="message-form"
-                    label="Your Message Here"
+                    id='message-form'
+                    label='Your Message Here'
                     multiline
                     rows={4}
-                    name="message"
+                    name='message'
                     onChange={handleChange}
                     onBlur={handleBlur}
-                    margin="dense"
+                    margin='dense'
                     fullWidth
                   />
                 </Box>
@@ -148,8 +148,8 @@ const Contact = () => {
                 onClick={handleSubmit}
                 endIcon={<SendIcon />}
                 loading={loading}
-                loadingPosition="end"
-                variant="contained"
+                loadingPosition='end'
+                variant='contained'
               >
                 <span>Send</span>
               </LoadingButton>
