@@ -55,7 +55,7 @@ const PortfolioCard = ({
             </CardContent>
           </Grid>
           <Box sx={{ mt: 'auto', mb: 1 }}>
-            <CardActions sx={{ justifyContent: 'center' }}>
+            <CardActions>
               <Button
                 component='a'
                 href={appLink}
