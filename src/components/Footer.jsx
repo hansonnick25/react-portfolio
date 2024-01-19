@@ -13,15 +13,15 @@ const Footer = () => {
       <BottomNavigation showLabels>
         <BottomNavigationAction
           label={<GitHubIcon />}
-          href="https://github.com/hansonnick25"
+          href='https://github.com/hansonnick25'
         />
         <BottomNavigationAction
           label={<LinkedInIcon />}
-          href="https://www.linkedin.com/in/nicholashanson97/"
+          href='https://www.linkedin.com/in/nicholashanson97/'
         />
         <BottomNavigationAction
           label={<StackedLineChartIcon />}
-          href="https://stackoverflow.com/users/3540574/hansonnick25"
+          href='https://stackoverflow.com/users/3540574/hansonnick25'
         />
       </BottomNavigation>
     </Toolbar>
