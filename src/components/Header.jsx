@@ -9,20 +9,14 @@ import {
   Container,
   Button,
   MenuItem,
-  FormControlLabel,
-  Switch,
 } from '@mui/material'
 import MenuIcon from '@mui/icons-material/Menu'
-import Brightness7Icon from '@mui/icons-material/Brightness7'
+// import LightModeIcon from '@mui/icons-material/LightMode'
+import DarkModeIcon from '@mui/icons-material/DarkMode'
 
 const sections = ['Portfolio', 'Contact', 'Resume']
 
 const Header = ({ setTheme }) => {
-  const handleThemeToggle = event => {
-    const { checked } = event.target
-    setTheme(checked ? 'dark' : 'light')
-  }
-
   const [anchorElNav, setAnchorElNav] = React.useState(null)
 
   const handleOpenNavMenu = event => {
@@ -50,29 +44,13 @@ const Header = ({ setTheme }) => {
     <AppBar position='sticky' enableColorOnDark>
       <Container maxWidth='xl'>
         <Toolbar disableGutters>
-          <Button
-            onClick={handleClickNavMenu}
-            variant='text'
-            sx={{ my: 2, color: 'white', display: 'block' }}
+          <Box
+            sx={{
+              flexGrow: 1,
+              display: { xs: 'flex', md: 'none' },
+            }}
           >
-            <Typography
-              variant='h6'
-              noWrap
-              component='a'
-              sx={{
-                mr: 2,
-                display: { xs: 'none', md: 'flex' },
-                fontWeight: 700,
-                color: 'inherit',
-                textDecoration: 'none',
-              }}
-            >
-              Nick Hanson
-            </Typography>
-          </Button>
-          <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
             <IconButton
-              size='large'
               aria-label='expand navigation'
               aria-controls='menu-appbar'
               aria-haspopup='true'
@@ -148,20 +126,9 @@ const Header = ({ setTheme }) => {
             ))}
           </Box>
 
-          <FormControlLabel
-            value='darkMode'
-            label={<Brightness7Icon></Brightness7Icon>}
-            labelPlacement='start'
-            control={
-              <Switch
-                defaultChecked
-                onChange={handleThemeToggle}
-                color='default'
-              />
-            }
-            color='white'
-            sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}
-          />
+          <IconButton>
+            <DarkModeIcon />
+          </IconButton>
         </Toolbar>
       </Container>
     </AppBar>
