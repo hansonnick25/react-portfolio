@@ -103,7 +103,6 @@ const Header = ({ setTheme }) => {
             noWrap
             component='a'
             sx={{
-              mr: 2,
               display: { xs: 'flex', md: 'none' },
               flexGrow: 1,
               fontWeight: 700,
