@@ -19,10 +19,10 @@ const Footer = () => {
           label={<LinkedInIcon />}
           href='https://www.linkedin.com/in/nicholashanson97/'
         />
-        <BottomNavigationAction
+        {/* <BottomNavigationAction
           label={<StackedLineChartIcon />}
           href='https://stackoverflow.com/users/3540574/hansonnick25'
-        />
+        /> */}
       </BottomNavigation>
     </Toolbar>
   )
