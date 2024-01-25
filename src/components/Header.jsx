@@ -11,12 +11,12 @@ import {
   MenuItem,
 } from '@mui/material'
 import MenuIcon from '@mui/icons-material/Menu'
-// import LightModeIcon from '@mui/icons-material/LightMode'
+import LightModeIcon from '@mui/icons-material/LightMode'
 import DarkModeIcon from '@mui/icons-material/DarkMode'
 
 const sections = ['Portfolio', 'Contact', 'Resume']
 
-const Header = ({ setTheme }) => {
+const Header = ({ theme, setTheme }) => {
   const [anchorElNav, setAnchorElNav] = React.useState(null)
 
   const handleOpenNavMenu = event => {
@@ -25,6 +25,10 @@ const Header = ({ setTheme }) => {
 
   const handleCloseNavMenu = () => {
     setAnchorElNav(null)
+  }
+
+  const handleSwitchTheme = () => {
+    theme === 'dark' ? setTheme('light') : setTheme('dark')
   }
 
   const handleClickNavMenu = event => {
@@ -118,15 +122,15 @@ const Header = ({ setTheme }) => {
                 key={section}
                 onClick={handleClickNavMenu}
                 variant='text'
-                sx={{ my: 2, color: 'white', display: 'block' }}
+                sx={{ my: 2, color: 'inherit', display: 'block' }}
               >
                 {section}
               </Button>
             ))}
           </Box>
 
-          <IconButton>
-            <DarkModeIcon />
+          <IconButton onClick={() => handleSwitchTheme()}>
+            {theme === 'dark' ? <DarkModeIcon /> : <LightModeIcon />}
           </IconButton>
         </Toolbar>
       </Container>
