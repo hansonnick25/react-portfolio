@@ -122,7 +122,7 @@ const Header = ({ theme, setTheme }) => {
                 key={section}
                 onClick={handleClickNavMenu}
                 variant='text'
-                sx={{ my: 2, color: 'inherit', display: 'block' }}
+                sx={{ my: 2, pr: 2.5, color: 'inherit', display: 'block' }}
               >
                 {section}
               </Button>
