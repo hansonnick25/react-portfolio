@@ -54,8 +54,7 @@ const Portfolio = () => {
             tech={{
               tech1: 'JavaScript',
               tech2: 'Bootstrap',
-              tech3: 'HTML',
-              tech4: 'CSS',
+              tech3: 'HTML/CSS',
             }}
             appLink='https://hansonnick25.github.io/weather-dashboard/'
             repoLink='https://github.com/hansonnick25/weather-dashboard'
@@ -67,10 +66,11 @@ const Portfolio = () => {
             title='Work Day Scheduler'
             description=''
             tech={{
-              tech1: 'DayJS',
-              tech2: 'BootStrap',
+              tech1: 'JavaScript',
+              tech2: 'Bootstrap',
               tech3: 'JQuery',
-              tech4: 'HTML/CSS/JavaScript',
+              tech4: 'DayJS',
+              tech5: 'HTML/CSS',
             }}
             appLink='https://hansonnick25.github.io/work-day-schedule/'
             repoLink='https://github.com/hansonnick25/work-day-schedule'
@@ -97,7 +97,8 @@ const Portfolio = () => {
             description='An app that allows you to generate a random password based on criteria that you select.'
             tech={{
               tech1: 'JavaScript',
-              tech2: 'HTML/CSS',
+              tech2: 'Bootstrap',
+              tech3: 'HTML/CSS',
             }}
             appLink='https://hansonnick25.github.io/password-generator/'
             repoLink='https://github.com/hansonnick25/password-generator'
