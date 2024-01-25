@@ -68,7 +68,7 @@ export default function App() {
         <Portfolio />
         <Contact />
         <Resume />
-        <Footer text='Footer Note' />
+        <Footer />
       </div>
     </ThemeProvider>
   )
