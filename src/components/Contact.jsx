@@ -93,7 +93,7 @@ const Contact = () => {
         <Grid item sm={10} md={10} lg={7} textAlign={'center'}>
           <Card>
             <CardContent>
-              <form id='contact-me-form'>
+              <form id='contact'>
                 <Box px={5}>
                   <Typography variant='body'>
                     Please feel free to reach out to me with any questions or
