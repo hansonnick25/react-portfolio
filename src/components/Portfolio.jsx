@@ -13,7 +13,7 @@ const Portfolio = () => {
       <Typography variant='h4' margin={3} textAlign={'center'}>
         Portfolio
       </Typography>
-      <Grid container justifyContent={'center'}>
+      <Grid container spacing={4} justifyContent={'center'}>
         <Grid item>
           <PortfolioCard
             imageUrl={liftrApp}
