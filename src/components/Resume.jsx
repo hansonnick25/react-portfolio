@@ -19,7 +19,7 @@ const Resume = () => {
         Resume
       </Typography>
       <Grid container justifyContent={'center'}>
-        <Grid item sm={10} md={10} lg={9} textAlign={'center'}>
+        <Grid item xs={12} sm={11} md={10} lg={9} textAlign={'center'}>
           <Card>
             <CardHeader subheader='Download Below!' />
             <CardMedia component='iframe' src={resumeFile} height={800} />
